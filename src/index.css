@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap');
+
+@import 'tailwindcss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #07000f;
+  font-family: 'Outfit', sans-serif;
+}
+
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+textarea::placeholder {
+  color: rgba(255, 130, 180, 0.35);
+  font-family: 'Outfit', sans-serif;
+}
+input::placeholder {
+  color: rgba(255, 130, 180, 0.35);
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(-8deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-48vh) scale(1) rotate(8deg);
+  }
+  92% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-98vh) scale(0.7) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiRain {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.25;
+  }
+  94% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(108vh) rotate(680deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiBurstFall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200px) rotate(560deg) scale(0.6);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(255, 20, 147, 0.35), 0 0 24px rgba(255, 20, 147, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(255, 20, 147, 0.65), 0 0 44px rgba(255, 20, 147, 0.3);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.75) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(18deg);
+  }
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1) rotate(0deg);
+    opacity: 1;
+  }
+  18% {
+    transform: scaleX(0.86) scaleY(1.09) rotate(-2.5deg);
+    opacity: 0.93;
+  }
+  36% {
+    transform: scaleX(1.1) scaleY(0.93) rotate(2deg);
+    opacity: 1;
+  }
+  54% {
+    transform: scaleX(0.92) scaleY(1.06) rotate(-1.5deg);
+    opacity: 0.96;
+  }
+  72% {
+    transform: scaleX(1.06) scaleY(0.96) rotate(2.5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* The written message folds into a paper plane before it leaves the page. */
+.wish-paper {
+  transform-origin: 50% 50%;
+  will-change: transform, opacity, clip-path;
+}
+
+.love-letter {
+  border: 1px solid rgba(255, 46, 139, 0.5);
+  border-radius: 24px 24px 8px 8px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 20, 147, 0.14) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 70%, rgba(255, 20, 147, 0.12) 0 1px, transparent 2px),
+    linear-gradient(145deg, rgba(100, 0, 52, 0.4), rgba(18, 0, 15, 0.72));
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.2), inset 0 0 36px rgba(255, 20, 147, 0.055);
+}
+
+.love-letter::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255, 105, 180, 0.13);
+  border-radius: 18px 18px 4px 4px;
+  pointer-events: none;
+}
+
+.wish-paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(145deg, rgba(255, 215, 0, 0.28), rgba(255, 20, 147, 0.24));
+  clip-path: polygon(0 0, 100% 0, 50% 54%);
+}
+
+.wish-paper-flying {
+  animation: foldAndFly 3.1s cubic-bezier(0.2, 0.75, 0.28, 1) forwards;
+}
+
+.wish-paper-flying::after {
+  animation: paperFold 3.1s ease-in forwards;
+}
+
+@keyframes paperFold {
+  0%, 18% { opacity: 0; }
+  32% { opacity: 0.88; }
+  100% { opacity: 0; }
+}
+
+@keyframes foldAndFly {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  28% {
+    opacity: 1;
+    transform: translate3d(0, 8px, 0) rotate(-2deg) scale(0.96, 0.42);
+    clip-path: polygon(0 0, 100% 0, 78% 52%, 50% 100%, 22% 52%);
+  }
+  42% {
+    opacity: 1;
+    transform: translate3d(18%, -30px, 0) rotate(17deg) scale(0.19, 0.12);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+  56% {
+    opacity: 1;
+    transform: translate3d(65%, -180px, 0) rotate(2deg) scale(0.19, 0.12);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+  69% {
+    opacity: 1;
+    transform: translate3d(8%, -290px, 0) rotate(-28deg) scale(0.19, 0.12);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+  82% {
+    opacity: 1;
+    transform: translate3d(-18%, -130px, 0) rotate(-98deg) scale(0.19, 0.12);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+  92% {
+    opacity: 1;
+    transform: translate3d(20%, -42px, 0) rotate(-142deg) scale(0.19, 0.12);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(92%, -225px, 0) rotate(-30deg) scale(0.045);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wish-paper-flying,
+  .wish-paper-flying::after {
+    animation-duration: 0.01ms;
+  }
+}

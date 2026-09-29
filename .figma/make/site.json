@@ -1,0 +1,10 @@
+{
+  "description": "Create a personalized, elegant birthday celebration page with interactive memories, photo galleries, and heartfelt messages in a glowing neon dark mode design.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
